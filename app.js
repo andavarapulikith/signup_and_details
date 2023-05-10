@@ -4,6 +4,8 @@ const app=express();
 const mongoose = require('mongoose');
 const multer=require('multer');
 const fs=require('fs');
+const dotenv = require('dotenv');
+dotenv.config();
 const fileStorage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, 'pdfs');
@@ -24,11 +26,13 @@ const connectionparams={ useNewUrlParser: true };
 mongoose.set('strictQuery',false);
 
 //set up mongoose connection
-mongoose.connect("mongodb://0.0.0.0:27017/kudose", connectionparams)
+
+mongoose.connect(process.env.myUri, connectionparams)
+
   .then(() => {
     console.info("connected to the db");
     app.listen(process.env.PORT || 5000, () => {
-      console.log('app listening in port 3000')
+      console.log('app listening in port 5000')
     })
   })
   .catch((e) => { console.log(e) })
