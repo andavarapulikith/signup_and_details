@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body
+    {
+        background-color: rgb(237, 237, 237);
+    }
+    .details
+    {
+        font-family:Arial, Helvetica;
+        margin-top: 50px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+     align-items: center;
+     justify-content: center;
+     
+    }
+    .detail
+    {
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        width: 400px;
+        height: 200px;
+        border: 2px solid black;
+        padding: 10px;
+        border-radius: 5px;
+        background-color: white;
+
+    }
+    .change
+    {
+        width: 200px;
+        height: 40px;
+        background-color: red;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+    }
+</style>
+<body>
+    <div class="change">
+    <a href="/" style="color:white;text-decoration: none;" >GO TO SIGNUP PAGE</a>
+</div>
+    <h1 style="text-align:center;">ALL DETAILS</h1>
+    <div class="details">
+        <% for(let i=0;i<data.length;i++) {%>
+        <div class="detail">
+           <p>FIRST NAME:<b>    <%=data[i].firstname %></b></p>
+           
+           <p>LAST NAME:<b>     <%=data[i].lastname %></b></p>
+            <p>EMAIL: <b>       <%=data[i].email %></b></p>
+            <p>CONTACT: <b>     <%=data[i].phone %></b></p>
+           <p>RESUME:       <a href="/read-pdf?id=<%=data[i]._id%>">resume.pdf</a></p> 
+        </div>
+        <% } %>
+    </div>
+</body>
+</html>
